@@ -1,0 +1,9 @@
+{% extends "voting_app/base.html" %}{% block content %}
+<div class="hero glass p-5 text-center">
+<h1 class="display-5 fw-bold">Secure Online Voting System</h1>
+<p class="lead text-secondary">Python + Django based election management and online voting.</p>
+<div class="d-flex justify-content-center gap-2"><a class="btn btn-info px-4" href="{% url 'voter_login' %}">Voter Login</a><a class="btn btn-outline-light px-4" href="{% url 'register' %}">Register</a><a class="btn btn-outline-warning px-4" href="{% url 'admin_login' %}">Admin Login</a></div>
+</div>
+<h3 class="mt-5 mb-3">Active Elections</h3>
+<div class="row g-3">{% for e in active_elections %}<div class="col-md-6"><div class="glass p-4"><span class="badge bg-success">ACTIVE</span><h4 class="mt-2">{{ e.title }}</h4><p class="text-secondary">{{ e.description }}</p><small>Ends: {{ e.end_date|date:"d M Y" }}</small></div></div>{% empty %}<p class="text-secondary">No active elections currently.</p>{% endfor %}</div>
+{% endblock %}

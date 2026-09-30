@@ -1,0 +1,6 @@
+{% extends "voting_app/base.html" %}{% block content %}
+<div class="glass p-4 mb-4 text-center"><span class="badge bg-secondary">COMPLETED ELECTION</span><h2 class="mt-2">{{ election.title }}</h2><p class="text-secondary">{{ election.description }}</p><small>Ended: {{ election.end_date }}</small></div>
+<div class="glass p-4"><h4>Results Statistics</h4><div class="table-responsive"><table class="table table-dark table-hover align-middle"><thead><tr><th>Candidate</th><th>Party</th><th>Symbol</th><th>Votes</th><th>Share</th></tr></thead><tbody>
+{% for c in results %}<tr><td>{{ c.name }}</td><td>{{ c.party_name }}</td><td>{{ c.party_symbol }}</td><td>{{ c.vote_count }}</td><td>{% widthratio c.vote_count total_votes 100 %}%</td></tr>{% empty %}<tr><td colspan="5">No candidates.</td></tr>{% endfor %}</tbody></table></div><div class="text-end">Total votes: <b>{{ total_votes }}</b></div>
+{% if tied %}<div class="alert alert-warning mt-4">Highest vote count is shared by: {% for c in tied %}{{ c.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</div>{% endif %}
+</div>{% endblock %}

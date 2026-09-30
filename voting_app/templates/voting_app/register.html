@@ -1,0 +1,5 @@
+{% extends "voting_app/base.html" %}{% block content %}
+<div class="glass p-4 mx-auto form-wide"><h2>Voter Registration</h2>
+<form method="post">{% csrf_token %}{{ form.non_field_errors }}<div class="row g-3">
+{% for field in form %}<div class="{% if field.name == 'address' %}col-12{% else %}col-md-6{% endif %}"><label class="form-label">{{ field.label }}</label>{{ field }}{% for e in field.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}</div>{% endfor %}
+</div><button class="btn btn-info mt-4">Register</button></form></div>{% endblock %}

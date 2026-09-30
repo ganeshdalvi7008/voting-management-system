@@ -1,0 +1,4 @@
+{% extends "voting_app/base.html" %}{% block content %}
+<div class="auth-card glass mx-auto"><h2>Voter Login</h2><p class="text-secondary">Login using Voter ID or Email.</p>
+<form method="post">{% csrf_token %}<label>Voter ID / Email</label><input class="form-control mb-3" name="identifier" required><label>Password</label><input type="password" class="form-control mb-3" name="password" required><button class="btn btn-info w-100">Login</button></form>
+<p class="mt-3 text-secondary">New voter? <a href="{% url 'register' %}">Register here</a></p></div>{% endblock %}

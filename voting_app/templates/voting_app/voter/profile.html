@@ -1,0 +1,4 @@
+{% extends "voting_app/base.html" %}{% block content %}
+<div class="glass p-4"><h2>Voter Profile</h2><div class="row g-3 mt-1">
+<div class="col-md-6"><small class="text-secondary">Voter ID</small><div>{{ voter.voter_id }}</div></div><div class="col-md-6"><small class="text-secondary">Name</small><div>{{ voter.name }}</div></div><div class="col-md-6"><small class="text-secondary">Email</small><div>{{ voter.email }}</div></div><div class="col-md-6"><small class="text-secondary">Mobile</small><div>{{ voter.mobile }}</div></div><div class="col-md-6"><small class="text-secondary">DOB</small><div>{{ voter.dob }}</div></div><div class="col-md-6"><small class="text-secondary">Gender</small><div>{{ voter.gender }}</div></div><div class="col-12"><small class="text-secondary">Address</small><div>{{ voter.address }}</div></div></div></div>
+{% endblock %}
